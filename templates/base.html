@@ -1,0 +1,318 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <!-- 
+      - custom css link
+    -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/appointment.css">
+
+    <!-- 
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <!-- Include your common stylesheets, scripts, etc. -->
+</head>
+<body>
+    {% block header %}
+        <!-- Your header code goes here -->
+        <header class="header">
+            <div class="header-top">
+                <div class="container">
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=drdhavalshah1990@gmail.com" target="_blank" class="contact-link">drdhavalshah1990@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <a href="tel:+917383300811" class="contact-link">+91 7383300811</a>
+                        </li>
+                    </ul>
+                    <ul class="social-list">
+                        <li>
+                            <a href="https://www.facebook.com/drdhavalshah32" class="social-link" target="_blank">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/32happyteethdentalclinic/" class="social-link" target="_blank">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="header-bottom" data-header>
+              <div class="container">
+                <a href="{% url 'homepage' %}" class="cliniclogo">
+                  <img src="/static/images/32 happy teeth-logos_transparent.png" alt="32 HAPPY TEETH" width="300px">
+                </a>
+                <nav class="navbar container" data-navbar>
+                  <ul class="navbar-list">
+                          <li>
+                            <a href="{% url 'homepage' %}#home" class="navbar-link" data-nav-link>Home</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'homepage' %}#service" class="navbar-link" data-nav-link>Services</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'aboutus' %}#about" class="navbar-link" data-nav-link>About Us</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'gallery' %}" class="navbar-link" data-nav-link>Gallery</a>
+                          </li>
+                          <li>
+                            <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+                          </li>
+                          <li>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'profile' %}" class="navbar-link" id="form-open" data-nav-link>Profile</a>
+                            <a href="{% url 'logout_view' %}" class="navbar-link" id="form-open" data-nav-link>Logout</a>
+                            {% else %}
+                            <a href="{% url 'login' %}" class="navbar-link" id="form-open" data-nav-link>signup/Login</a>
+                            {% endif %}
+                              
+                          </li>
+                        </ul>
+                    </nav>
+                    <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+                        <ion-icon name="menu-sharp" aria-hidden="true" class="menu-icon"></ion-icon>
+                        <ion-icon name="close-sharp" aria-hidden="true" class="close-icon"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <script src="/static/js/script.js" defer></script>
+        <script src="/static/js/appointment.js" defer></script>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    {% endblock %}
+
+    {% block content %}
+        <!-- Content specific to each page goes here -->
+    {% endblock %}
+
+    {% block footer %}
+
+
+    <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" id="contact">
+
+    <div class="footer-top section">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">32 Happy Teeth.</a>
+
+          <p class="footer-text">
+            
+          </p>
+          <h3>Time</h3>
+
+          <div class="schedule">
+            <div class="schedule-icon">
+              <ion-icon name="time-outline"></ion-icon>
+            </div>
+
+            <span class="span">
+              Monday - Saturday:<br>
+              10:00am - 01:00Pm,<br>
+              &nbsp;&nbsp;5:00pm - &nbsp;&nbsp;9:00Pm
+            </span>&nbsp;
+          </div>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Other Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'aboutus'%}" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">About Us</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'homepage' %}#service" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Services</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'gallery' %}" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Gallery</span>
+            </a>
+          </li>
+
+    
+
+        </ul>
+
+       
+          {% comment %} <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Alignment Teeth</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Cosmetic Teeth</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Oral Hygiene</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Live Advisory</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="add-outline"></ion-icon>
+
+              <span class="span">Cavity Inspection</span>
+            </a>
+          </li>{% endcomment %}
+
+         
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Us</p>
+          </li>
+
+          <li class="footer-item">
+            <div class="item-icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <address class="item-text">
+             <a href="https://www.google.com/maps/place/32+HAPPY+TEETH+DENTAL+CLINIC/@23.0525099,72.5483398,21z/data=!4m10!1m2!2m1!1shttps:%2F%2Fwww.google.com%2Fmaps%2Fplace%2F32%2BHAPPY%2BTEETH%2BDENTAL%2BCLINIC%2F@23.0525141,72.5476376,19.97z%2Fdata%3D*214m6*213m5*211s0x395e85f30e550d7f:0x9655f9d00b8935b2*218m2*213d23.0524969*214d!3m6!1s0x395e85f30e550d7f:0x9655f9d00b8935b2!8m2!3d23.0524969!4d72.548378!15sCqYBaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9tYXBzL3BsYWNlLzMyK0hBUFBZK1RFRVRIK0RFTlRBTCtDTElOSUMvQDIzLjA1MjUxNDEsNzIuNTQ3NjM3NiwxOS45N3ovZGF0YT0hNG02ITNtNSExczB4Mzk1ZTg1ZjMwZTU1MGQ3ZjoweDk2NTVmOWQwMGI4OTM1YjIhOG0yITNkMjMuMDUyNDk2OSE0ZCIDiAEBkgENZGVudGFsX2NsaW5pY-ABAA!16s%2Fg%2F11ns40rnzd?entry=ttu" target="_blank"> 205, sachet-3, Opp. Kids World, Near Mirambika Cross Road,Naranpura, Ahmedabad-380013</a>
+            </address>
+          </li>
+
+          <li class="footer-item">
+            <div class="item-icon">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+
+            <a href="tel:+917383300811" class="footer-link">+91 7383300811</a>
+          </li>
+
+          <li class="footer-item">
+            <div class="item-icon">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=drdhavalshah1990@gmail.com" target="_blank" class="footer-link">drdhavalshah1990@gmail.com</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 All Rights Reserved by 32 happy teeth dental clinic.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://www.facebook.com/drdhavalshah32" class="social-link" target="_blank">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/32happyteethdentalclinic/" class="social-link" target="_blank" >
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+  
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+  {% endblock %}
+
+
+</body>
+</html>

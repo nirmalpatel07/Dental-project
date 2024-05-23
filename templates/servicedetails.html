@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block title %}About us {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/servicedetails.css">
+   
+    <div class="container">
+        <h2>{{serviceDetails.service_title}}</h2>
+
+         <div class="text-center">
+            <img src="/media/{{serviceDetails.service_image}}"  class="img-circle"  alt="Responsive image" width="307" height="240" />
+         </div>
+        <p>{{serviceDetails.additional_details  | safe }}</p>
+    </div>
+{% endblock %}

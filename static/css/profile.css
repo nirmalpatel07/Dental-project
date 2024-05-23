@@ -1,0 +1,34 @@
+/* Reset CSS */
+* {
+  margin-top: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  margin-bottom: revert-layer;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* change background color as needed */
+  color: #333; /* change text color as needed */
+}
+
+/* .container {
+  
+} */
+
+
+
+
+
+.container h2 {
+  font-size: 1.8rem; /* adjust heading font size as needed */
+  margin-bottom: 27px;
+  margin-top: 145px;
+}
+
+.container p {
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+

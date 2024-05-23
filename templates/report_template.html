@@ -1,0 +1,34 @@
+<!-- templates/report_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+<body>
+    <h1>Report Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date Generated</th>
+                <th>Description</th>
+                <th>Dentist</th>
+                <th>Patient</th>
+                <th>Service</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in report_data %}
+                <tr>
+                    <td>{{ data.date_generated }}</td>
+                    <td>{{ data.description }}</td>
+                    <td>{{ data.dentist }}</td>
+                    <td>{{ data.patient }}</td>
+                    <td>{{ data.service }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* Reset CSS */
+* {
+  margin-top: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* change background color as needed */
+  color: #333; /* change text color as needed */
+}
+
+/* .container {
+  
+} */
+
+
+
+
+
+.container h2 {
+  font-size: 1.8rem; /* adjust heading font size as needed */
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.container p {
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+
+.about {
+  padding-block-end: 0;
+}
+
+.about-banner {
+  margin-block-end: 50px;
+}
+
+.about .section-text-1 {
+  margin-block: 25px 15px;
+}
+
+.about .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.about-banner {
+  margin-block-end: 0;
+  margin-left: 160px;
+  margin-top: 70px;
+}
+
+
+.section-subtitle {
+  color: var(--royal-blue-light);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  margin-block-end: -125px;
+}

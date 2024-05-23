@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block title %}LogIn {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="/static/css/login.css">
+  
+     <div class="wrapper">
+		<div class="wrapper">
+			<div class="headline">
+			</div>
+			<form class="forml" method="post"  action="{% url 'login' %}">
+				{% csrf_token %}
+       			<div class="signup">
+				    <h1 class="form-text">Login</h1>
+				 
+					<div class="form-group">
+						<input type="email" name="email" placeholder="Email" required="">
+				    </div>
+				    <div class="form-group">
+            			<input type="password" name="password" id="password" placeholder="Password" required>
+            			<button type="button" id="toggle-password">
+                			<img src="/static/images/eye.png" width="20">
+           				</button>
+						   <div class="forget-password">
+							<div class="check-box">
+								<input type="checkbox" id="checkbox">
+								<label for="checkbox" id="remember" >Remember me</label>
+							</div>
+							<a href="#" id="forgot">Forget password?</a>
+						</div>
+          			</div>
+					  {% if messages %}
+					  <ul class="messages">
+						  {% for message in messages %}
+							  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+						  {% endfor %}
+					  </ul>
+				  {% endif %}
+            		
+				    <button type="submit" class="btn">LOGIN</button>
+				    <div class="account-exist">
+					   Create a new account <a href="{% url 'signup' %}" id="login">Sign Up</a>
+				    </div>
+				
+			    </div>
+			
+			</form>
+		</div>
+	</div>
+    <script src="/static/js/login.js" defer></script>
+	{% endblock %}

@@ -1,0 +1,14 @@
+
+.success {
+    color: green;
+    margin-bottom: 300px; 
+    margin-top: 300px; 
+    text-align:center;
+    font-size:30px;
+  }
+  .success a{
+    margin-top:20px;
+    text-decoration:underline;
+    color:blue;
+  
+  }

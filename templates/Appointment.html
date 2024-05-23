@@ -1,0 +1,183 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Book Appointment {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+      <!--form-->
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+     
+      <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+          <form action="{% url "appointment" %}" method="POST" id="appointmentForm">
+            {% csrf_token %}
+            <div class="formbold-mb-5 formbold-pt-3">
+               
+                <div class="flex flex-wrap formbold--mx-3">
+                    <div class="w-full sm:w-half formbold-px-3">
+                        <div class="formbold-mb-5">
+                            <label for="name" class="formbold-form-label"> Full Name </label>
+
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    placeholder="Full Name"
+                                    class="formbold-form-input"
+                                    required
+                                />
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-half formbold-px-3">
+                        <div class="formbold-mb-5">
+                            <label for="phone" class="formbold-form-label"> Phone Number </label>
+
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    id="phone"
+                                    placeholder="Mobile No."
+                                    class="formbold-form-input"
+                                    oninput="validatePhoneNumber(this)"
+                                    required
+                                    maxlength ="10"
+                                    />
+                                <small id="phone-error" class="error-message"></small>
+                            
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-half formbold-px-3">
+                        <div class="formbold-mb-5">
+                            <label for="Email" class="formbold-form-label"> Email  </label>
+
+                                <input
+                                    type="main"
+                                    name="Email"
+                                    id="Email"
+                                    placeholder="Email"
+                                    class="formbold-form-input"
+                                    required
+                                />
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-half formbold-px-3">
+                        <div class="formbold-mb-5 w-full">
+                            <label for="date" class="formbold-form-label"> Date </label>
+                                <input
+                                    type="date"
+                                    name="date"
+                                    id="date"
+                                    class="formbold-form-input"
+                                    onchange="updateTimeSlots(this.value)"
+                                    required
+                                />
+                        </div>
+                    </div>
+                    
+                    <div class="w-full formbold-px-3">
+                      <div class="formbold-mb-5" id="output">
+                          <label for="time" class="formbold-form-label"> Time Slot </label>
+                          <select name="time" id="time" class="formbold-form-input" required>
+                            <!-- Options will be dynamically added here by JavaScript -->
+                            
+                          </select> 
+                        
+                      </div>
+                  </div>
+
+                  <div class="w-full formbold-px-3">
+                    <div class="formbold-mb-5" id="output">
+                        <label for="time" class="formbold-form-label"> Services </label>
+                        <select id="Services"  class="formbold-form-input" required>
+                            <option value="Dental RVG">Dental RVG</option>
+                            <option value="Orthodontic treatment">Orthodontic treatment</option>   
+                            <option value="Cleaning of teeth and scaling">Cleaning of teeth and scaling</option>
+                            <option value="Advanced Root Canal Treatment ">Advanced Root Canal Treatment </option>
+                            <option value="Dental implantation">Dental implantation</option>
+                            <option value="Wisdom tooth removal">Wisdom tooth removal</option>
+                          
+                        </select> 
+                      
+                    </div>
+                </div>
+
+                  <div class="w-full formbold-px-3">
+                    <div class="formbold-mb-5">
+                        <label for="comments" class="formbold-form-label"> Comments </label>
+                        <textarea
+                            name="comments"
+                            id="comments"
+                            placeholder="Write your comments here"
+                            class="formbold-form-input"
+                        ></textarea>
+                    </div>
+                </div>
+                </div>
+            </div>
+           
+           
+            <div>
+              <button class="formbold-btn" type="submit" >Book Appointment</button>
+             
+            </div>
+          </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+    <script>
+        
+        $(document).ready(function () {
+            $('#appointmentForm').submit(function (e) {
+                e.preventDefault(); // Prevent form submission
+                
+                // Collect form data
+                var formData = {
+                    name: $('#name').val(),
+                    phone: $('#phone').val(),
+                    Email: $('#Email').val(),
+                    date: $('#date').val(),
+                    time: $('#time option:selected').text(),
+                    Services: $('#Services').val(),
+                    //time: $('#time option:selected').html(), // Include the selected time slot
+                    comments: $('#comments').val()
+                };
+     
+                var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+                // Send AJAX request to Django view
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "appointment" %}',
+                    data: formData,
+                    headers: {
+                        'X-CSRFToken': csrfToken
+                    },
+                    success: function (response) {
+                        alert('Appointment booked successfully!');
+                        // Handle success, if needed
+                    },
+                    error: function (error) {
+                        alert('Error booking appointment!');
+                        // Handle error, if needed
+                    }
+                });
+            });
+        });
+    </script>
+    
+      
+  {% endblock %}

@@ -1,0 +1,134 @@
+/* Reset CSS */
+* {
+  margin-top: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* change background color as needed */
+  color: #333; /* change text color as needed */
+}
+
+/* .container {
+  
+} */
+/* Style for service cards */
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-card {
+  width: 300px; /* Adjust the width as needed */
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc; /* Add border for box effect */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Style for the title and description inside the card */
+.service-card .card-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.service-card .card-text {
+  text-align: justify; /* Justify text for better readability */
+}
+
+.service-banner {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20%;
+}
+
+.service {
+  padding-block-end: 0;
+}
+
+.service .section-title {
+  margin-block-end: 50px;
+}
+
+/* .service-list {
+  display: grid;
+  gap: 15px;
+}
+  */
+/* .service-card {
+  display: flex;
+  align-items: center; /* vertically center the content */
+  /* justify-content: center; /* horizontally center the content */
+  /* border: 1px solid var(--light-gray); /* example border */
+  /* border-radius: 20px; */
+  /* padding: 10px; example padding */ */
+  /* box-sizing: border-box; /* include border and padding in box sizing */
+  /* height: 100px; example height */ */
+/* } */
+
+.card-content {
+  flex-grow: 1; /* to make the content fill remaining space */
+}
+
+
+
+
+
+.service-card .card-icon {
+  width: 50px;
+  flex-shrink: 0;
+}
+
+
+
+
+.container h2 {
+  font-size: 1.8rem; /* adjust heading font size as needed */
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.container p {
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+
+.about {
+  padding-block-end: 0;
+}
+
+.about-banner {
+  margin-block-end: 50px;
+}
+
+.about .section-text-1 {
+  margin-block: 25px 15px;
+}
+
+.about .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.about-banner {
+  margin-block-end: 0;
+}
+
+.section-subtitle {
+  color: var(--royal-blue-light);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  margin-block-end: -125px;
+}

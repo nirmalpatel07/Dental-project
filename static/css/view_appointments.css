@@ -1,0 +1,14 @@
+/* Reset CSS */
+* {
+    margin-top: 0px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* change background color as needed */
+    color: #333; /* change text color as needed */
+  }
+  

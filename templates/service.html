@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Service {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/service.css">
+{% for n in serviceDetail %}
+
+
+<section class="section service" id="service" aria-label="service">
+  <div class="container">
+    
+    
+    <p class="section-subtitle text-center">Our Services</p>
+    
+    <h2 class="h2 section-title text-center">What We Provide</h2>
+    
+    <ul class="service-list">
+
+     
+      <li>
+
+        <div class="service-card">
+
+          {% comment %} <div class="card-icon">
+            <img src="/static/images/service-icon-1.png" width="100" height="100" loading="lazy"
+              alt="service icon" class="z-100">
+          </div> {% endcomment %}
+
+          <div>
+            
+            <a href="/servicedetails/{{n.id}}"> <!-- Link to service details page -->
+              
+            <h3 class="h3 card-title">{{n.service_title}}</h3>
+            
+            <p class="card-text"> 
+              {{n.service_des}} 
+            </p>
+          
+          </a>
+          </div>
+          {% comment %} <a href="{% url 'service' %}" class="btn">Read more</a> {% endcomment %}
+        </div>
+        
+      </li>
+    
+
+
+
+{%endfor%}
+
+   
+{% endblock %}

@@ -1,0 +1,145 @@
+
+{% extends 'base.html' %} 
+ 
+{% block title %}  Profile {% endblock %} 
+ 
+{% block header %} 
+    <!-- Include the header content from base.html --> 
+    {{ block.super }} 
+{% endblock %} 
+ 
+{% block content %} 
+ 
+{% comment %} <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> {% endcomment %} 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="/static/css/pr.css"> 
+ 
+<!------ Include the above in your HEAD tag ----------> 
+ 
+<div class="container emp-profile"> 
+            <form method="post"> 
+                <div class="row"> 
+                    <div class="col-md-4"> 
+                        
+                    </div> 
+                    <div class="col-md"> 
+                        <div class="profile-head"> 
+                                    <h5 class="h5"> 
+                                        Welcome,  {{ user_data.first_name }} {{ user_data.last_name }}!    </h5> 
+                                    <h6> 
+                                        {% comment %} Web Developer and Designer {% endcomment %} 
+                                    </h6> 
+                            <ul class="nav nav-tabs" id="myTab" role="tablist"> 
+                                <li class="nav-item"> 
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Your Profile</a> 
+                                </li> 
+                               
+                            </ul> 
+                        </div> 
+                    </div> 
+                     
+                </div> 
+                <div class="row"> 
+                     
+                    <div class="col-md-8"> 
+                        <div class="tab-content profile-tab" id="myTabContent"> 
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
+                                        <div class="row"> 
+                                            <div class="col-md-6"> 
+                                                <label> First Name </label> 
+                                            </div> 
+                                            <div class="col-md-6"> 
+                                                <p>{{ user_data.first_name }}</p> 
+                                            </div> 
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-6"> 
+                                                <label>Last Name</label> 
+                                            </div> 
+                                            <div class="col-md-6"> 
+                                                <p> {{ request.user.last_name }}</p> 
+                                            </div> 
+                                        </div> 
+                                        <div class="row"> 
+                                            <div class="col-md-6"> 
+                                                <label>Email</label> 
+                                            </div> 
+                                            <div class="col-md-6"> 
+                                                <p>{{ user_data.email }}</p> 
+                                            </div> 
+                                        </div> 
+                                       
+                            
+                                        <div class="row"> 
+                                            <div class="col-md-6"  id="appointments"> 
+                                                <label>Your Appointments:</label> 
+                                                {% if user_appointments %} 
+                                                <ul> 
+                                                    {% for appointment in user_appointments %} 
+                                                    <li> Date: {{ appointment.date }} at {{ appointment.time }}</li> 
+                                                    <!-- Add more details about the appointment as needed --> 
+                                                    {% endfor %} 
+                                                </ul> 
+                                                {% else %} 
+                                                <p>You have no appointments scheduled.</p> 
+                                                {% endif %} 
+                                            </br>
+
+                                                <h3>My Reports:</h3>
+                                            </br>
+                                                {% if patient_reports %}
+                                                    <ul>
+                                                        {% for report in patient_reports %}
+                                                            <li>
+                                                                <strong>Date Generated:</strong> {{ report.date_generated }}<br>
+                                                                <strong>Description:</strong> {{ report.description }}<br>
+                                                                <!-- Add other report details as needed -->
+                                                                  <!-- Add a download link for the report -->
+                                                            </br> 
+                                                                 <a href="{% url 'download_report' report.id %}">Download Report</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </br></br>
+                                                {% else %}
+                                                    <p>No reports found.</p>
+                                                {% endif %}
+
+                                            </br></br>
+
+                                                    <!-- Display appointment cancellation information -->
+                                                    {% if appointment_cancelled %}
+                                                    <p>Your appointment has been cancelled.</p>
+                                                   {% endif %}
+                                            </div> 
+                                        </div> 
+                                            
+                                    </div> 
+                            </div> 
+                            
+                        </div> 
+                    </div> 
+                </div> 
+            </form>            
+        </div> 
+{% endblock %} 
+ 
+{% comment %}         
+        <!-- Profile information --> 
+<h2>Welcome, {{ request.user.username }}!</h2> 
+ 
+<!-- Display user's appointments --> 
+{% if user_appointments %} 
+    <h3>Your Appointments:</h3> 
+    <ul> 
+    {% for appointment in user_appointments %} 
+        <li>{{ appointment.date }} at {{ appointment.time }}</li> 
+        <!-- Add more details about the appointment as needed --> 
+    {% endfor %} 
+    </ul> 
+{% else %} 
+    <p>You have no appointments scheduled.</p> 
+{% endif %}  
+ 
+ {% endcomment %}

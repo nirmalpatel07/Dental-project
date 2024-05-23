@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Gallery {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/gallery.css">
+   
+
+    <section class="section gallery" id="gallery" aria-label="gallery">
+        <div class="container">
+          
+          
+          
+          <ul class="gallery-list">
+
+            {% for n in gallerydata %}
+            <li>
+
+              <div class="gallery-card">
+
+                {% comment %} <div class="card-icon">
+                  <img src="/static/images/service-icon-1.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div> {% endcomment %}
+
+                <div>
+                  
+                  {% comment %} <a href="/gallery/"> <!-- Link to  details page --> {% endcomment %}
+                    
+                  {% comment %} <h3 class="h3 card-title">{{n.image_title}}</h3> {% endcomment %}
+              
+                 
+                       <div class="text-center">
+                          <img src="/media/{{n.gallery_image}}"  class="img-circle"  alt="Responsive image" width="307" height="240" />
+                       </div>
+                
+                </a>
+                </div>
+                {% comment %} <a href="{% url 'service' %}" class="btn">Read more</a> {% endcomment %}
+              </div>
+              
+            </li>
+            {%endfor%}
+        </ul>
+          
+    </div>
+  </section>
+
+
+
+    {% comment %} <h1>Gallery hh</h1>
+    <div class="gallery">
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.caption }}">
+            <p>{{ image.caption }}</p>
+        {% endfor %}
+    </div> {% endcomment %}
+{% endblock %}

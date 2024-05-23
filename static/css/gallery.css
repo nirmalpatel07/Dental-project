@@ -1,0 +1,57 @@
+/* Reset CSS */
+* {
+  margin-top: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* change background color as needed */
+  color: #333; /* change text color as needed */
+}
+
+   /* h1 {  
+    text-align: center;
+    margin-top: 20px;
+  }*/
+  
+  
+.service-banner {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20%;
+}
+
+.gallery {
+  padding-block-end: 0;
+}
+
+
+
+/* Style for gallery cards */
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-card {
+  width: 300px; /* Adjust the width as needed */
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc; /* Add border for box effect */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Style for the image inside the card */
+.gallery-card img {
+  max-width: 100%; /* Ensure images don't exceed card width */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center image horizontally */
+  border-radius: 5px; /* Rounded corners for images */
+}

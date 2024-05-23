@@ -1,0 +1,43 @@
+/* Reset CSS */
+* {
+    margin-top: 0px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* change background color as needed */
+    color: #333; /* change text color as needed */
+  }
+  
+  /* .container {
+    
+  } */
+  
+  
+  
+  
+  
+  .container h2 {
+    font-size: 3rem; /* adjust heading font size as needed */
+    margin-bottom: 20px;
+    margin-top: 150px;
+    color: hsl(225,68%,53%);
+  }
+  
+  .container p {
+    line-height: 1.6;
+    margin-bottom: 35px;
+  }
+  
+.text-center{
+  text-align: center;
+}
+
+.img-circle{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

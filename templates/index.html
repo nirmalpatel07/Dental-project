@@ -1,0 +1,718 @@
+<!-- success.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}32 Happy Teeth{% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+{% comment %} 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} {% endcomment %}
+
+
+
+  <main>
+    <article>
+    
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" style="background-image: url('/static/images/hero-bg.png')"
+        aria-label="hero">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">Welcome To 32 Happy Teeth</p>
+
+            <h1 class="h1 hero-title">We Are Best Dental Service</h1>
+
+            <p class="hero-text">
+              Our Dental Clinic stands out as the premier choice for exceptional dental care, offering a blend of cutting-edge technology and compassionate service. With a team of skilled professionals dedicated to patient comfort and satisfaction, Our Dental Clinic sets the standard for excellence in oral health.
+            </p>
+
+            
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="/static/images/hero-banner.png" width="400" alt="hero banner" class="x-100">
+          </figure>
+          <a href="{% url 'appointment' %}" class="btn">Book appointment</a>
+
+       
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" id="service" aria-label="service">
+        <div class="container">
+          
+          
+          <p class="section-subtitle text-center">Our Services</p>
+          
+          <h2 class="h2 section-title text-center">What We Provide</h2>
+          
+          <ul class="service-list">
+
+            {% for n in servicesdata %}
+            <li>
+
+              <div class="service-card">
+
+                {% comment %} <div class="card-icon">
+                  <img src="/static/images/service-icon-1.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div> {% endcomment %}
+
+                <div>
+                  
+                  <a href="/servicedetails/{{n.id}}"> <!-- Link to service details page -->
+                    
+                  <h3 class="h3 card-title">{{n.service_title}}</h3>
+              
+                  <p class="card-text">
+                    {{n.service_des}}
+                  </p>
+                
+                </a>
+                </div>
+                {% comment %} <a href="{% url 'service' %}" class="btn">Read more</a> {% endcomment %}
+              </div>
+              
+            </li>
+            {%endfor%}
+
+            {% comment %} <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-2.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Ortho Treatment</h3>
+
+                  <p class="card-text">
+
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-3.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Cleaning of Teeth & Scaling</h3>
+
+                  <p class="card-text">
+
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-4.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Silver, Cement, Composite, Filling</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Bleaching, Scaling</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>         
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-6.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Flap and Bone Grafting Surgery</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Extraction of Tooth & Wisdom Tooth Removal</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Ceramic, Metal and Zirconia Fixed Crown & Bridge</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Implant Tooth</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Removable Complete Denture, Implant Supported Complete Denture</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Removable Partial & Flexible Denture</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Advanced RCT</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Dental Jewellary & Cosmetic Treatment</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="/static/images/service-icon-5.png" width="100" height="100" loading="lazy"
+                    alt="service icon" class="z-100">
+                </div>
+
+                <div>
+                  <h3 class="h3 card-title">Pediatric Dental Treatment</h3>
+
+                  <p class="card-text">
+                  </p>
+                </div>
+
+              </div>
+            </li> {% endcomment %}
+
+          </ul>
+          
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <figure class="about-banner">
+            <img src="/static/images/Untitled design (54).png" width="470" height="538" loading="lazy" alt="about banner"
+              class="y-100">
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">About Us</p>
+
+            <h2 class="h2 section-title">Dr.Dhaval shah</h2>
+
+            <p class="section-text section-text-1">
+              Dr.Dhaval has a love for creating beautiful smiles with both form and function. He is amongst the best dentist in Ahmedabad. In the Ahmedabad, with a passion for dentistry that is unsurpassed. He is founding member of the clinic bringing with him, a wealth of knowledge and experience gained since qualifying from Government Dental College and hospital in 1998.
+            </p>
+{% comment %} 
+            <p class="section-text">
+              Aliquam erat volutpat. Aliquam enim massa, sagittis blandit ex mattis, ultricies posuere sapien. Morbi a
+              dignissim enim.
+              Fusce elementum, augue in elementum porta, sapien nunc volutpat ex, a accumsan nunc lectus eu lectus.
+            </p> {% endcomment %}
+
+            <a href="{% url 'aboutus' %}" class="btn">Read more</a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #DOCTOR
+      -->
+<!-- 
+      <section class="section doctor" aria-label="doctor">
+        <div class="container">
+
+          <p class="section-subtitle text-center">Our Doctor</p>
+
+          <h2 class="h2 section-title text-center">Best Expert Dentist</h2>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="/static/images/doctor-1.png" width="460" height="500" loading="lazy" alt="Howard Holmes"
+                    class="img-cover">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Howard Holmes</a>
+                </h3>
+
+                <p class="card-subtitle">Dentist</p>
+
+                <ul class="card-social-list">
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="/static/images/doctor-2.png" width="460" height="500" loading="lazy" alt="Ella Thompson"
+                    class="img-cover">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Ella Thompson</a>
+                </h3>
+
+                <p class="card-subtitle">Dentist</p>
+
+                <ul class="card-social-list">
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="/static/images/doctor-3.png" width="460" height="500" loading="lazy" alt="Vincent Cooper"
+                    class="img-cover">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Vincent Cooper</a>
+                </h3>
+
+                <p class="card-subtitle">Dentist</p>
+
+                <ul class="card-social-list">
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="doctor-card">
+
+                <div class="card-banner img-holder" style="--width: 460; --height: 500;">
+                  <img src="/static/images/doctor-4.png" width="460" height="500" loading="lazy" alt="Danielle Bryant"
+                    class="img-cover">
+                </div>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Danielle Bryant</a>
+                </h3>
+
+                <p class="card-subtitle">Dentist</p>
+
+                <ul class="card-social-list">
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="card-social-link">
+                      <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+ -->
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="section cta" aria-label="cta">
+        <div class="container">
+
+          <figure class="cta-banner">
+            <img src="/static/images/cta-banner.png" width="800" loading="lazy" alt="cta banner"
+              class="w-100">
+          </figure>
+
+          <div class="cta-content">
+
+            <p class="section-subtitle">Book Dental Appointment</p>
+
+            <h2 class="h2 section-title">We Are open And Welcoming Patients</h2>
+
+            <a href="{% url 'appointment' %}" class="btn">Book appointment</a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="blog" aria-label="blog">
+        <div class="container">
+
+          <p class="section-subtitle text-center"> Gallery</p>
+{% comment %} 
+          <h2 class="h2 section-title text-center">Latest Blog & News</h2> {% endcomment %}
+
+          <ul class="blog-list">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 160; --height: 70;">
+                  <img src="\static\images\clinic.jpg" width="1180" height="800" loading="lazy"
+                    alt="Cras accumsan nulla nec lacus ultricies placerat." class="img-cover">
+{% comment %} 
+                  <div class="card-badge">
+                    <ion-icon name="calendar-outline"></ion-icon>
+
+                    <time class="time" datetime="2022-03-24">24th March 2022</time>
+                  </div> {% endcomment %}
+                </figure>
+
+                <div class="card-content">
+
+                  {% comment %} <h3 class="h3">
+                    <a href="#" class="card-title">Cras accumsan nulla nec lacus ultricies placerat.</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.
+                  </p> {% endcomment %}
+
+                  
+                  
+            <a href="{% url 'gallery' %}" class="btn">Explore more</a>
+                </div>
+
+              </div>
+            </li>
+
+            {% comment %} <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
+                  <img src="/static/images/blog-2.jpg" width="1180" height="800" loading="lazy"
+                    alt="Dras accumsan nulla nec lacus ultricies placerat." class="img-cover">
+
+                  <div class="card-badge">
+                    <ion-icon name="calendar-outline"></ion-icon>
+
+                    <time class="time" datetime="2022-03-24">24th March 2022</time>
+                  </div>
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Dras accumsan nulla nec lacus ultricies placerat.</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.
+                  </p>
+
+                  <a href="#" class="card-link">Read More</a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
+                  <img src="/static/images/blog-3.jpg" width="1180" height="800" loading="lazy"
+                    alt="Seas accumsan nulla nec lacus ultricies placerat." class="img-cover">
+
+                  <div class="card-badge">
+                    <ion-icon name="calendar-outline"></ion-icon>
+
+                    <time class="time" datetime="2022-03-24">24th March 2022</time>
+                  </div>
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Seas accumsan nulla nec lacus ultricies placerat.</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.
+                  </p>
+
+                  <a href="#" class="card-link">Read More</a>
+
+                </div>
+
+              </div>
+            </li> {% endcomment %}
+
+          </ul>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  {% endblock %}
+

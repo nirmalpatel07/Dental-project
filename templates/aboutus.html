@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block title %} About us {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/aboutus.css">
+
+<section class="section about" id="about" aria-label="about">
+    <div class="container">
+
+     
+
+      <div class="about-content">
+
+        <p class="section-subtitle">About Us</p>
+
+        <h2 class="h2 section-title">Dr.Dhaval shah</h2>
+
+        <p class="section-text section-text-1">
+          Dr.Dhaval has a love for creating beautiful smiles with both form and function. He is amongst the best dentist in Ahmedabad. In the Ahmedabad, with a passion for dentistry that is unsurpassed. He is founding member of the clinic bringing with him, a wealth of knowledge and experience gained since qualifying from Government Dental College and hospital in 1998.
+        </p>
+
+        {% comment %} <p class="section-text">
+          Aliquam erat volutpat. Aliquam enim massa, sagittis blandit ex mattis, ultricies posuere sapien. Morbi a
+          dignissim enim.
+          Fusce elementum, augue in elementum porta, sapien nunc volutpat ex, a accumsan nunc lectus eu lectus.
+        </p> {% endcomment %}
+
+      
+
+      </div>
+
+      <figure class="about-banner">
+        <img src="/static/images/Untitled design (54).png" width="470" height="538" loading="lazy" alt="about banner"
+          class="y-100">
+      </figure>
+
+    </div>
+  </section>
+
+
+   
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Sign Up {% endblock %}
+
+{% block header %}
+    <!-- Include the header content from base.html -->
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="/static/css/signup.css">
+
+
+     <div class="wrapper">
+		<div class="wrapper">
+			<div class="headline">
+			</div>
+			<form class="forml" method="post" action="{% url 'signup' %}">
+				{% csrf_token %}
+       			<div class="signup">
+				    <h1 class="form-text">Sign Up</h1>
+				    <div class="form-group">
+					    <input type="text" name="first_name" placeholder="First name" required="">
+				    </div>
+					<div class="form-group">
+					    <input type="text" name="last_name" placeholder="last name" required="">
+				    </div>
+					<div class="form-group">
+						<input type="email" name="email" placeholder="Email" required="">
+				    </div>
+				    <div class="form-group">
+            			<input type="password" name="password1" id="password" placeholder="Password" required>
+            			<button type="button" id="toggle-password">
+                			<img src="/static/images/eye.png" width="20">
+           				</button>
+          			</div>
+            		<div class="form-group">
+              			<input type="text" name="password2" id="confirm-password" placeholder="Confirm Password" required>
+              			
+          			</div>
+					  {% if messages %}
+					  <ul class="messages">
+						  {% for message in messages %}
+							  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+						  {% endfor %}
+					  </ul>
+				  {% endif %}
+				    <button type="submit" class="btn">SIGN UP</button>
+				    <div class="accont-exist">
+					   Already have an account? <a href="{% url 'login' %}" id="login">Login</a>
+				    </div>
+				    
+			    </div>
+			
+			</form>
+		</div>
+	</div>
+    <script src="/static/js/login.js" defer></script>
+	{% endblock %}
